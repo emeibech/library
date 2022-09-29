@@ -1,0 +1,55 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+header {text-align: center;}
+
+main {
+    border: 1px solid salmon;
+    display: grid;
+}
+
+main > div {
+    border: 1px solid seagreen;
+    height: 200px;
+    display: grid;
+    grid-template-columns: repeat(14, 1fr);
+}
+
+main > div > p {
+    display: grid;
+    place-items: center;
+}
+
+.book .title {
+    grid-column: 2 / -2;
+    /* border: 1px solid rebeccapurple; */
+}
+
+.delete {
+    /* border: 1px solid sandybrown; */
+    display: grid;
+    place-content: center;
+    height: 32px;
+    cursor: pointer;;
+}
+
+.book .author {
+    grid-column: 2 / -2;
+    /* border: 1px solid firebrick; */
+}
+
+.book .pages {
+    grid-column: 2 / span 6;
+    /* border: 1px solid slategrey; */
+    justify-content: start;
+}
+
+.book .status {
+    grid-column: 8 / span 6;
+    /* border: 1px solid forestgreen; */
+    justify-content: end;
+}
+
