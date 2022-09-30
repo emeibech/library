@@ -19,7 +19,7 @@ header {
 }
 
 header h1 {
-    background: -webkit-linear-gradient(45deg, #48557f, #779eba);
+    background: -webkit-linear-gradient(0deg, #4d5b82, #739eb9);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -37,20 +37,18 @@ main {
 }
 
 main > div {
-    height: 200px;
+    height: 240px;
     display: grid;
     grid-template-columns: repeat(14, 1fr);
-    background: -webkit-linear-gradient(45deg, #48557f, #779eba);
+    /* background: -webkit-linear-gradient(45deg, #48557f, #739eb9);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    border: 2px solid #779eba; */
+    background-image: linear-gradient(90deg, #4d5b82, #739eb9);
     font-weight: 600;
     cursor: default;
-    color: #779eba;
-}
-
-main > div  {
-    border: 1px solid #48557f;
+    color: #e7e5e5;
 }
 
 main > div > p {
@@ -73,18 +71,20 @@ main > div > p {
     align-items: center;
     cursor: pointer;
     border: none;
-    color: red;
-    background-color: rgba(0, 0, 0, 0);
+    background: -webkit-linear-gradient(0deg, #581829, #912933);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
     justify-self: end;
     align-self: start;
-    padding-inline: 4px;
-    font-size: 1.5rem;
+    padding-inline: 6px;
+    font-size: 1.3rem;
 }
 
 .book .author {
     /* border: 1px solid firebrick; */
     grid-column: 2 / -2;
-    place-items: center;
+    align-items: start;
 }
 
 .book .pages {
