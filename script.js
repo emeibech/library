@@ -9,9 +9,9 @@ function Book(title, author, pages, status) {
 
 const sapiens = new Book('Sapiens: A Brief History of Humankind', 'Yuval Harari', '443', 'Finished');
 const prideAndPrejudice = new Book('Pride and Prejudice', 'Jane Austen', '276', 'Finished');
-const carrieSotoisBack = new Book ('Carrie Soto is Back', 'Taylor Jenkins Reid', '384', 'Not read');
+const carrieSotoisBack = new Book ('Carrie Soto is Back', 'Taylor Jenkins Reid', '384', 'Not Read');
 
-myLibrary.push(sapiens, prideAndPrejudice, carrieSotoisBack);
+myLibrary.unshift(carrieSotoisBack, prideAndPrejudice, sapiens);
 
 //display books
 myLibrary.forEach(book => displayBooks(book));
