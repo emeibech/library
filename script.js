@@ -24,7 +24,8 @@ function displayBooks(book) {
     const para3 = document.createElement('p');
     const para4 = document.createElement('p');
     const del = document.createElement('button');
-    container.classList.add('book');
+    container.classList.add(`book`);
+    container.setAttribute('data', `${myLibrary.indexOf(book)}`);
     del.setAttribute('href', '#');
     del.setAttribute('type', 'button');
     del.classList.add('delete');
@@ -54,6 +55,9 @@ document.querySelector('.book-form').addEventListener('submit', e => {
     //instantiate new book
     const book = new Book(title, author, pages, status);
 
+    //add new book to array
+    myLibrary.push(book);
+
     //display new book
     displayBooks(book);
 
@@ -72,5 +76,9 @@ function clearField() {
 document.querySelector('.lib').addEventListener('click', deleteBook);
 
 function deleteBook(e) {
-    if(e.target.classList.contains('delete')) e.target.parentElement.remove();
+    if(e.target.classList.contains('delete')) {
+        e.target.parentElement.remove();
+        const data = e.target.parentElement.getAttribute('data');
+        myLibrary.splice(data, 1);
+    }
 }
