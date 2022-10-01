@@ -52,7 +52,6 @@ main > div {
 
 main > div > p {
     display: grid;
-    padding: 8px;
     text-align: center;
 }
 
@@ -70,7 +69,7 @@ main > div > p {
     align-items: center;
     cursor: pointer;
     border: none;
-    background: -webkit-linear-gradient(0deg, #581829, #912933);
+    background: -webkit-linear-gradient(0deg, #851e3a, #d34a58);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
