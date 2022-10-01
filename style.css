@@ -25,6 +25,8 @@ header h1 {
     height: 3rem;
     font-size: 2.5rem;
     margin-bottom: 0;
+    letter-spacing: -2px;
+    
 }
 
 main {
@@ -171,4 +173,79 @@ label {font-size: 0.9rem;}
 
 .selection-hide {
     display: none;
+}
+
+/* other projects */
+.other-hidden {display: none;}
+
+@media only screen and (min-width: 768px) {
+    body {
+        display: grid;
+        grid-template-columns: 22% 1fr;
+    }
+
+    header {
+        grid-column: 2;
+        margin-top: 13%;
+    }
+
+    main {
+        grid-column: 2;
+        grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    }
+
+    main > div {
+        height: 300px;
+    }
+
+    .other-hidden {display: block;}
+
+    aside {
+        grid-column: 1 / 2;
+        grid-row: 2 / span 1;
+        padding-left: 1rem;
+        display: grid;
+        /* border: 1px solid goldenrod; */
+        place-items: start;
+        position: relative;
+    }
+
+    .extra {
+        display: grid;
+        gap: 8px;
+        position: sticky;
+        top: 50%;
+    }
+
+    .src-code {
+        margin-top: 24px;
+    }
+
+    .extra ul {
+        display: grid;
+        gap: 2px;
+    }
+    
+    /* aside div {
+        border: 1px solid salmon;
+    } */
+
+    aside h4 {
+        background: -webkit-linear-gradient(45deg, #48557f, #7094a5);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-decoration: underline;
+        color: #48557f;
+    }
+
+    ul{list-style: none;}
+
+    li a {
+        text-decoration: none;
+        background: -webkit-linear-gradient(45deg, #48557f, #7094a5);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
 }
