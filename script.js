@@ -56,7 +56,7 @@ document.querySelector('.book-form').addEventListener('submit', e => {
 
     //display new book
     displayBooks(book);
-    
+
     //clear previous input
     clearField()
 });
@@ -66,4 +66,11 @@ function clearField() {
     document.querySelector('#author').value = '';
     document.querySelector('#pages').value = '';
     document.querySelector('#status').value = 'Finished';
+}
+
+//delete book when x is clicked
+document.querySelector('.lib').addEventListener('click', deleteBook);
+
+function deleteBook(e) {
+    if(e.target.classList.contains('delete')) e.target.parentElement.remove();
 }
