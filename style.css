@@ -30,7 +30,6 @@ header h1 {
 }
 
 main {
-    /* border: 1px solid salmon; */
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 4px;
@@ -41,11 +40,6 @@ main > div {
     height: 240px;
     display: grid;
     grid-template-columns: repeat(14, 1fr);
-    /* background: -webkit-linear-gradient(45deg, #48557f, #7094a5);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    border: 2px solid #779eba; */
     background-image: linear-gradient(90deg, #4d5b82, #7094a5);
     font-weight: 600;
     cursor: default;
@@ -58,7 +52,6 @@ main > div > p {
 }
 
 .book .title {
-    /* border: 1px solid rebeccapurple; */
     grid-column: 2 / -2;
     align-items: end;
     justify-content: center;
@@ -82,20 +75,17 @@ main > div > p {
 }
 
 .book .author {
-    /* border: 1px solid firebrick; */
     grid-column: 2 / -2;
     align-items: center;
 }
 
 .book .pages {
-    /* border: 1px solid slategrey; */
     grid-column: 2 / span 6;
     justify-content: start;
     align-items: center;
 }
 
 .book .status {
-    /* border: 1px solid forestgreen; */
     grid-column: 8 / span 6;
     justify-content: end;
     align-items: center;
@@ -108,19 +98,16 @@ main > div > p {
 
 /* Add new book */
 .add-new {
-    /* border: 1px solid sandybrown; */
     display: grid;
     grid-template-columns: 1fr;
     padding-block: 8px;
 }
 
 .book-form {
-    /* border: 1px solid slateblue; */
     display: grid;
 }
 
 .form-group {
-    /* border: 1px solid sienna; */
     display: grid;
     place-items: center;
 }
@@ -205,7 +192,6 @@ label {font-size: 0.9rem;}
         grid-row: 2 / span 1;
         padding-left: 1rem;
         display: grid;
-        /* border: 1px solid goldenrod; */
         place-items: start;
         position: relative;
     }
@@ -214,7 +200,7 @@ label {font-size: 0.9rem;}
         display: grid;
         gap: 8px;
         position: sticky;
-        top: 50%;
+        top: 60%;
     }
 
     .src-code {
@@ -225,10 +211,6 @@ label {font-size: 0.9rem;}
         display: grid;
         gap: 2px;
     }
-    
-    /* aside div {
-        border: 1px solid salmon;
-    } */
 
     aside h4 {
         background: -webkit-linear-gradient(45deg, #48557f, #7094a5);

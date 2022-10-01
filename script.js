@@ -7,15 +7,6 @@ function Book(title, author, pages, status) {
     this.status = status;
 }
 
-const sapiens = new Book('Sapiens: A Brief History of Humankind', 'Yuval Harari', '443', 'Finished');
-const prideAndPrejudice = new Book('Pride and Prejudice', 'Jane Austen', '276', 'Finished');
-const carrieSotoisBack = new Book ('Carrie Soto is Back', 'Taylor Jenkins Reid', '384', 'Not Read');
-
-myLibrary.push(sapiens, prideAndPrejudice, carrieSotoisBack);
-
-//display books
-myLibrary.forEach(book => displayBooks(book));
-
 function displayBooks(book) {
     const prev = document.querySelector('.book');
     const container = document.createElement('div');
@@ -106,9 +97,9 @@ function changeStatus() {
         dnfed.textContent = 'DNFed';
         container.append(finished, notRead, started, dnfed);
         parent.classList.add('container-relative');
-        container.classList.add('selection');
+        container.classList.toggle('selection');
         parent.appendChild(container);
-        target.classList.add('status-hide');
+        target.classList.toggle('status-hide');
 
         document.querySelectorAll('.selection > p').forEach(item => {
             item.addEventListener('click', replaceStatus)
@@ -116,8 +107,8 @@ function changeStatus() {
         
         function replaceStatus(e) {
         target.textContent = `${e.target.textContent}`;
-        target.classList.remove('status-hide');
-        container.classList.add('selection-hide');
+        target.classList.toggle('status-hide');
+        container.classList.toggle('selection-hide');
         const data = e.target.parentElement.parentElement.getAttribute('data-index');
         myLibrary[data].status = `${e.target.textContent}`;
         }
