@@ -11,12 +11,13 @@ const sapiens = new Book('Sapiens: A Brief History of Humankind', 'Yuval Harari'
 const prideAndPrejudice = new Book('Pride and Prejudice', 'Jane Austen', '276', 'Finished');
 const carrieSotoisBack = new Book ('Carrie Soto is Back', 'Taylor Jenkins Reid', '384', 'Not Read');
 
-myLibrary.unshift(carrieSotoisBack, prideAndPrejudice, sapiens);
+myLibrary.push(sapiens, prideAndPrejudice, carrieSotoisBack);
 
 //display books
 myLibrary.forEach(book => displayBooks(book));
 
 function displayBooks(book) {
+    const prev = document.querySelector('.book');
     const container = document.createElement('div');
     const para1 = document.createElement('p');
     const para2 = document.createElement('p');
@@ -37,5 +38,32 @@ function displayBooks(book) {
     para4.textContent = `${book.status}`;
     para4.classList.add('status');
     container.append(para1, del, para2, para3, para4);
-    document.querySelector('.lib').appendChild(container);
+    document.querySelector('.lib').insertBefore(container, prev);
+}
+
+document.querySelector('.book-form').addEventListener('submit', e => {
+    //prevent default submit behavior
+    e.preventDefault();
+
+    //get new book value from input
+    const title = document.querySelector('#title').value;
+    const author = document.querySelector('#author').value;
+    const pages = document.querySelector('#pages').value;
+    const status = document.querySelector('#status').value;
+
+    //instantiate new book
+    const book = new Book(title, author, pages, status);
+
+    //display new book
+    displayBooks(book);
+    
+    //clear previous input
+    clearField()
+});
+
+function clearField() {
+    document.querySelector('#title').value = '';
+    document.querySelector('#author').value = '';
+    document.querySelector('#pages').value = '';
+    document.querySelector('#status').value = 'Finished';
 }
