@@ -97,6 +97,11 @@ main > div > p {
     grid-column: 8 / span 6;
     justify-content: end;
     align-items: center;
+    cursor: pointer;
+}
+
+.book .status:hover {
+    color: #ffffff;
 }
 
 /* Add new book */
@@ -143,3 +148,27 @@ select {
 input,
 select,
 label {font-size: 0.9rem;}
+
+/* set style for changing status */
+.container-relative {
+    position: relative;
+}
+
+.selection {
+    position: absolute;
+    bottom: 20px;
+    right: 26px;
+    cursor: pointer;
+}
+
+.selection p:hover {
+    color: #8f2259;
+}
+
+.status-hide {
+    display: none;
+}
+
+.selection-hide {
+    display: none;
+}

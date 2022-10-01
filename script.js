@@ -25,7 +25,7 @@ function displayBooks(book) {
     const para4 = document.createElement('p');
     const del = document.createElement('button');
     container.classList.add(`book`);
-    container.setAttribute('data', `${myLibrary.indexOf(book)}`);
+    container.setAttribute('data-index', `${myLibrary.indexOf(book)}`);
     del.setAttribute('href', '#');
     del.setAttribute('type', 'button');
     del.classList.add('delete');
@@ -62,7 +62,10 @@ document.querySelector('.book-form').addEventListener('submit', e => {
     displayBooks(book);
 
     //clear previous input
-    clearField()
+    clearField();
+
+    //change status for new books
+    changeStatus();
 });
 
 function clearField() {
@@ -78,7 +81,47 @@ document.querySelector('.lib').addEventListener('click', deleteBook);
 function deleteBook(e) {
     if(e.target.classList.contains('delete')) {
         e.target.parentElement.remove();
-        const data = e.target.parentElement.getAttribute('data');
+        const data = e.target.parentElement.getAttribute('data-index');
         myLibrary.splice(data, 1);
     }
 }
+
+//change read status
+function changeStatus() {
+    document.querySelectorAll('.book :last-child').forEach(item => {
+        item.addEventListener('click', editStatus);
+    })
+
+    function editStatus(e) {
+        const target = e.target;
+        const parent = e.target.parentElement;
+        const container = document.createElement('div');
+        const finished = document.createElement('p');
+        const notRead = document.createElement('p');
+        const started = document.createElement('p');
+        const dnfed = document.createElement('p');
+        finished.textContent = 'Finished';
+        notRead.textContent = 'Not Read';
+        started.textContent = 'Started';
+        dnfed.textContent = 'DNFed';
+        container.append(finished, notRead, started, dnfed);
+        parent.classList.add('container-relative');
+        container.classList.add('selection');
+        parent.appendChild(container);
+        target.classList.add('status-hide');
+
+        document.querySelectorAll('.selection > p').forEach(item => {
+            item.addEventListener('click', replaceStatus)
+        })
+        
+        function replaceStatus(e) {
+        target.textContent = `${e.target.textContent}`;
+        target.classList.remove('status-hide');
+        container.classList.add('selection-hide');
+        const data = e.target.parentElement.parentElement.getAttribute('data-index');
+        myLibrary[data].status = `${e.target.textContent}`;
+        }
+    }
+}
+
+changeStatus();
