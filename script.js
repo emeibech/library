@@ -91,26 +91,30 @@ function changeStatus() {
         const notRead = document.createElement('p');
         const started = document.createElement('p');
         const dnfed = document.createElement('p');
+        const newStatus = document.createElement('p');
         finished.textContent = 'Finished';
         notRead.textContent = 'Not Read';
         started.textContent = 'Started';
         dnfed.textContent = 'DNFed';
         container.append(finished, notRead, started, dnfed);
         parent.classList.add('container-relative');
-        container.classList.toggle('selection');
+        container.classList.add('selection');
         parent.appendChild(container);
-        target.classList.toggle('status-hide');
+        parent.removeChild(target);
 
         document.querySelectorAll('.selection > p').forEach(item => {
             item.addEventListener('click', replaceStatus)
         })
         
         function replaceStatus(e) {
-        target.textContent = `${e.target.textContent}`;
-        target.classList.toggle('status-hide');
-        container.classList.toggle('selection-hide');
-        const data = e.target.parentElement.parentElement.getAttribute('data-index');
-        myLibrary[data].status = `${e.target.textContent}`;
+            const options = document.querySelector('.selection');
+            newStatus.textContent = `${e.target.textContent}`;
+            const data = e.target.parentElement.parentElement.getAttribute('data-index');
+            myLibrary[data].status = `${e.target.textContent}`;
+            newStatus.classList.add('status');
+            parent.appendChild(newStatus);
+            parent.removeChild(options);
+            changeStatus();
         }
     }
 }
