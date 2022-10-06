@@ -85,7 +85,6 @@ function changeStatus() {
 
     function editStatus(e) {
         const target = e.target;
-        const parent = e.target.parentElement;
         const container = document.createElement('div');
         const finished = document.createElement('p');
         const notRead = document.createElement('p');
@@ -97,10 +96,10 @@ function changeStatus() {
         started.textContent = 'Started';
         dnfed.textContent = 'DNFed';
         container.append(finished, notRead, started, dnfed);
-        parent.classList.add('container-relative');
+        e.target.parentElement.classList.add('container-relative');
         container.classList.add('selection');
-        parent.appendChild(container);
-        parent.removeChild(target);
+        e.target.parentElement.appendChild(container);
+        e.target.parentElement.removeChild(target);
 
         document.querySelectorAll('.selection > p').forEach(item => {
             item.addEventListener('click', replaceStatus)
@@ -112,8 +111,8 @@ function changeStatus() {
             const data = e.target.parentElement.parentElement.getAttribute('data-index');
             myLibrary[data].status = `${e.target.textContent}`;
             newStatus.classList.add('status');
-            parent.appendChild(newStatus);
-            parent.removeChild(options);
+            e.target.parentElement.parentElement.appendChild(newStatus);
+            e.target.parentElement.parentElement.removeChild(options);
             changeStatus();
         }
     }
